@@ -15,7 +15,7 @@ export const ProgressStat = ({ title, subtitle, className }) => {
 
 const StyledProgressStat = styled("div")({
   "& .title": {
-    fontWeight: 700,
+    fontWeight: "700",
   },
 
   "&.subtitle": {
