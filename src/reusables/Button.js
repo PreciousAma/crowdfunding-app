@@ -11,6 +11,6 @@ export const Button = ({ text, ...rest }) => {
 
 const StyledButton = styled(muiButton)({
   borderRadius: "33.5px",
-  width: "100%",
+  // width: "100%",
   textTransform: "capitalize",
 });

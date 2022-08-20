@@ -130,6 +130,9 @@ const StyledCard = styled(Card)({
 
   "& .title3": {
     fontSize: "32px",
+    display: "flex",
+    alignItems: "center",
+    columnGap: "8px",
   },
 
   "& .title3 span": {

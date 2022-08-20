@@ -1,19 +1,27 @@
 import React from "react";
 import { Card } from "../../reusables/Card";
-import { styled, Typography } from "@mui/material";
+import { ReactComponent as BookmarkIcon } from "../../images/icon-bookmark.svg";
+import { styled, Typography, SvgIcon } from "@mui/material";
 import { Button } from "../../reusables/Button";
 
 export const TitleCard = () => {
   return (
     <StyledCard>
       <Typography variant="h4" component="h3" className="title">
-        Mastercraft Bamboo <br />
-        Monitor Riser
+        Mastercraft Bambo Monitor Riser
       </Typography>
       <Typography variant="subtitle1" compponent="p" className="subtitle">
         A beautifully handcrafted monitor stand to reduce neck and eye strain.
       </Typography>
-      <Button text="Back this project" />
+      <div className="buttonGroup">
+        <Button text="Back this project" />
+        <Button
+          startIcon={<SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />}
+          text="Bookmark"
+          className="buttonIcon"
+          disabled
+        />
+      </div>
     </StyledCard>
   );
 };
@@ -37,10 +45,30 @@ const StyledCard = styled(Card)({
     marginBottom: "24px",
   },
 
+  "& .buttonGroup": {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    columnGap: "20px",
+    rowGap: "15px",
+  },
+
   "& .MuiButton-root": {
-    maxWidth: "214px",
-    fontSize: "14px",
+    fontSize: "16px",
     color: "#FFFFFF",
-    padding: "15px 33px 16px 32px",
+    padding: "15px 33px",
+
+    "& .MuiSvgIcon-root": {
+      fontSize: "56px",
+    },
+
+    "&.buttonIcon": {
+      paddingLeft: "72px",
+    },
+
+    "& .MuiButton-startIcon": {
+      position: "absolute",
+      left: 0,
+    },
   },
 });
