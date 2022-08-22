@@ -8,4 +8,7 @@ export const Banner = () => {
 const StyledBanner = styled("div")({
   backgroundImage: `url(${bannerImage})`,
   paddingTop: "375px",
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center center",
 });
