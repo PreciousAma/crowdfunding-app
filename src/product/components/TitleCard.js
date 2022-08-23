@@ -6,7 +6,7 @@ import { Button } from "../../reusables/Button";
 
 export const TitleCard = () => {
   return (
-    <StyledCard>
+    <StyledCard variant="outlined">
       <Typography variant="h4" component="h3" className="title">
         Mastercraft Bambo Monitor Riser
       </Typography>

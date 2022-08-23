@@ -15,13 +15,22 @@ const theme = createTheme({
   typography: {
     fontFamily: "Commissioner, Roboto, sans-serif",
   },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          background: "#F2F2F2",
+        },
+      },
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <CssBaseline />
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <StyledEngineProvider injectFirst>
         <App />
       </StyledEngineProvider>
