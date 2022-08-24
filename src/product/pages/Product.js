@@ -22,4 +22,6 @@ const StyledDiv = styled("div")({
   maxWidth: "730px",
   marginLeft: "auto",
   marginRight: "auto",
+  position: "relative",
+  top: "-52px",
 });

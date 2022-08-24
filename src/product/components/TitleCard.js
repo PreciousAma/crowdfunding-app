@@ -3,10 +3,15 @@ import { Card } from "../../reusables/Card";
 import { ReactComponent as BookmarkIcon } from "../../images/icon-bookmark.svg";
 import { styled, Typography, SvgIcon } from "@mui/material";
 import { Button } from "../../reusables/Button";
+import logo from "../../images/logo-mastercraft.svg";
 
 export const TitleCard = () => {
   return (
     <StyledCard variant="outlined">
+      <div className="logo">
+        <img src={logo} alt="Mastercraft logo" />
+      </div>
+
       <Typography variant="h4" component="h3" className="title">
         Mastercraft Bambo Monitor Riser
       </Typography>
@@ -28,6 +33,16 @@ export const TitleCard = () => {
 
 const StyledCard = styled(Card)({
   marginBottom: "24px",
+  // position: "relative",
+
+  "& .logo": {
+    position: "absolute",
+    top: "-25px",
+    zIndex: 1000,
+    left: "50%",
+    marginLeft: "-30px",
+    // marginRight: "auto",
+  },
 
   "& .title": {
     fontWeight: "700",
