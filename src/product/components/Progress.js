@@ -53,6 +53,7 @@ const StyledCard = styled(Card)({
     width: "100%",
     maxWidth: "80px",
     textAlign: "center",
+    background: "#2F2F2F",
   },
 
   "& .progressBar": {
@@ -61,9 +62,13 @@ const StyledCard = styled(Card)({
     marginTop: "10px",
     height: "12px",
     borderRadius: "4px",
+    background: "#F2F2F2",
+    // background: "#2F2F2F",
+    // background: "#3CB3AB",
   },
 
   "& .MuiLinearProgress-bar": {
     borderRadius: "5px",
+    background: "#3CB3AB",
   },
 });

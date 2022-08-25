@@ -66,6 +66,7 @@ const StyledCard = styled(Card)({
     justifyContent: "space-between",
     columnGap: "20px",
     rowGap: "15px",
+    alignItems: "center",
   },
 
   "& .MuiButton-root": {

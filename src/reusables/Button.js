@@ -13,4 +13,5 @@ const StyledButton = styled(muiButton)({
   borderRadius: "33.5px",
   // width: "100%",
   textTransform: "capitalize",
+  background: "#3CB3AB",
 });
