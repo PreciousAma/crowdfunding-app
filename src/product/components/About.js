@@ -1,7 +1,8 @@
 import React from "react";
 import { Card } from "../../reusables/Card";
 import { styled, Typography } from "@mui/material";
-import { Button } from "../../reusables/Button";
+// import { Button } from "../../reusables/Button";
+import { Project } from "../../reusables/Project";
 
 export const About = () => {
   return (
@@ -21,87 +22,54 @@ export const About = () => {
           sticks to be stored under the stand.
         </p>
       </Typography>
-      <StyledCard>
-        <Typography variant="h4" component="h3" className="title title2">
-          Bamboo Stand
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="h4"
-          className="subtitle subtitle2"
-        >
-          Pledge $25 or more
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="p"
-          className="subtitle text2"
-        >
-          You get an ergonomic stand made of natural bamboo. You've helped us
-          launch our promotional campaign, and you’ll be added to a special
-          Backer member list.
-        </Typography>
-        <Typography variant="h4" component="h3" className="title title3">
-          101 <span>left</span>
-        </Typography>
-        <Button text="Select Reward" />
-      </StyledCard>
 
-      <StyledCard>
-        <Typography variant="h4" component="h3" className="title title2">
-          Black Edition Stand
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="h4"
-          className="subtitle subtitle2"
-        >
-          Pledge $75 or more
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="p"
-          className="subtitle text2"
-        >
-          You get a Black Special Edition computer stand and a personal thank
-          you. You’ll be added to our Backer member list. Shipping is included.
-        </Typography>
-        <Typography variant="h4" component="h3" className="title title3">
-          64 <span>left</span>
-        </Typography>
-        <Button text="Select Reward" />
-      </StyledCard>
-      <StyledCard>
-        <Typography variant="h4" component="h3" className="title title2">
-          Mahogany Special Edition
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="h4"
-          className="subtitle subtitle2"
-        >
-          Pledge $200 or more
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          compponent="p"
-          className="subtitle text2"
-        >
-          You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
-          personal thank you. You’ll be added to our Backer member list.
-          Shipping is included.
-        </Typography>
-        <Typography variant="h4" component="h3" className="title title3">
-          0 <span>left</span>
-        </Typography>
-        <Button text="out of stock" disabled />
-      </StyledCard>
+      <Project
+        title="Bamboo Stand"
+        subtitle="Pledge $25 or more"
+        text="You get an ergonomic stand made of natural bamboo. You've helped us
+          launch our promotional campaign, and you’ll be added to a special
+          Backer member list."
+        meta1="101"
+        meta2="left"
+        btntext="select reward"
+      />
+      <Project
+        title="Black Edition Stand"
+        subtitle="Pledge $75 or more"
+        text="You get a Black Special Edition computer stand and a personal thank
+          you. You’ll be added to our Backer member list. Shipping is included."
+        meta1="64"
+        meta2="left"
+        btntext="select text"
+      />
+      <Project
+        title="Mahogany Special Edition"
+        subtitle="Pledge $200 or more"
+        text="You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
+        personal thank you. You’ll be added to our Backer member list.
+        Shipping is included."
+        meta1="0"
+        meta2="left"
+        btntext="out of stock"
+        disabled
+      />
     </StyledCard>
   );
 };
 
 const StyledCard = styled(Card)({
   marginTop: "24px",
+
+  // "@media only screen and (min-width: 768px)": {
+  //   display: "flex",
+  // },
+
+  "& .titleContainer": {
+    "@media only screen and (min-width: 768px)": {
+      display: "flex",
+      justifyContent: "space-between",
+    },
+  },
 
   "& .title": {
     fontWeight: "700",

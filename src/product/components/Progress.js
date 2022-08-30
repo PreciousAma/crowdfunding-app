@@ -12,23 +12,25 @@ export const Progress = () => {
 
   return (
     <StyledCard variant="outlined">
-      <ProgressStat
-        title="$89,914"
-        subtitle="of $100,000 backed"
-        className="progressStatWrapper"
-      />
-      <Divider variant="middle" />
-      <ProgressStat
-        title="5,007"
-        subtitle="total backers"
-        className="progressStatWrapper"
-      />
-      <Divider variant="middle" />
-      <ProgressStat
-        title="56"
-        subtitle="days left"
-        className="progressStatWrapper"
-      />
+      <div className="progressContainer">
+        <ProgressStat
+          title="$89,914"
+          subtitle="of $100,000 backed"
+          className="progressStatWrapper"
+        />
+        <Divider variant="middle" flexItem />
+        <ProgressStat
+          title="5,007"
+          subtitle="total backers"
+          className="progressStatWrapper"
+        />
+        <Divider variant="middle" flexItem />
+        <ProgressStat
+          title="56"
+          subtitle="days left"
+          className="progressStatWrapper"
+        />
+      </div>
       <LinearProgress
         variant="determinate"
         value={85}
@@ -37,10 +39,23 @@ export const Progress = () => {
     </StyledCard>
   );
 };
+
 const StyledCard = styled(Card)({
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
+
+  "& .progressContainer": {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+
+    "@media only screen and (min-width: 768px)": {
+      flexDirection: "row",
+      width: "100%",
+      columnGap: "30px",
+    },
+  },
 
   "& .progressStatWrapper": {
     textAlign: "center",
@@ -52,21 +67,30 @@ const StyledCard = styled(Card)({
     marginBottom: "24px",
     width: "100%",
     maxWidth: "80px",
-    textAlign: "center",
-    background: "#2F2F2F",
+    alignSelf: "center",
+
+    "@media only screen and (min-width: 768px)": {
+      borderRightWidth: "thin",
+      borderBottomWidth: 0,
+      marginTop: 0,
+      marginBottom: 0,
+      // margin: "0 5% 0 7%",
+      alignSelf: "stretch",
+      width: "auto",
+      marginLeft: "20px",
+    },
   },
 
   "& .progressBar": {
     width: "100%",
     display: "block",
-    marginTop: "10px",
+    marginTop: "32px",
     height: "12px",
     borderRadius: "4px",
     background: "#F2F2F2",
     // background: "#2F2F2F",
     // background: "#3CB3AB",
   },
-
   "& .MuiLinearProgress-bar": {
     borderRadius: "5px",
     background: "#3CB3AB",
