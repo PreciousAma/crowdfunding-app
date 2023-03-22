@@ -40,7 +40,7 @@ export const About = () => {
           you. You’ll be added to our Backer member list. Shipping is included."
         meta1="64"
         meta2="left"
-        btntext="select text"
+        btntext="select reward"
       />
       <Project
         title="Mahogany Special Edition"
@@ -114,6 +114,6 @@ const StyledCard = styled(Card)({
     maxWidth: "157px",
     fontSize: "14px",
     color: "#FFFFFF",
-    padding: "15px 33px 16px 32px",
+    padding: "14px 33px 14px 33px",
   },
 });

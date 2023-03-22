@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "../../reusables/Card";
 import { ReactComponent as BookmarkIcon } from "../../images/icon-bookmark.svg";
-import { styled, Typography, SvgIcon } from "@mui/material";
+import { styled, Typography, SvgIcon, IconButton } from "@mui/material";
 import { Button } from "../../reusables/Button";
 import logo from "../../images/logo-mastercraft.svg";
 
@@ -26,6 +26,9 @@ export const TitleCard = () => {
           className="buttonIcon"
           disabled
         />
+        <IconButton className="bookmarkButton">
+          <SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />
+        </IconButton>
       </div>
     </StyledCard>
   );
@@ -69,6 +72,18 @@ const StyledCard = styled(Card)({
     alignItems: "center",
   },
 
+  "& .bookmarkButton": {
+    fontSize: "56px",
+
+    "& .MuiSvgIcon-root": {
+      fontSize: "inherit",
+    },
+
+    "@media only screen and (min-width: 768px)": {
+      display: "none",
+    },
+  },
+
   "& .MuiButton-root": {
     fontSize: "16px",
     color: "#FFFFFF",
@@ -80,6 +95,11 @@ const StyledCard = styled(Card)({
 
     "&.buttonIcon": {
       paddingLeft: "72px",
+      display: "none",
+
+      "@media only screen and (min-width: 768px)": {
+        display: "inline-flex",
+      },
     },
 
     "& .MuiButton-startIcon": {

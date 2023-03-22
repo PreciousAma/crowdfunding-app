@@ -28,10 +28,12 @@ export const Project = ({
       <Typography variant="subtitle1" compponent="p" className="subtitle text2">
         {text}
       </Typography>
-      <Typography variant="h4" component="h3" className="title title3">
-        {meta1} <span>{meta2}</span>
-      </Typography>
-      <Button text={btntext} className="btnCard" />
+      <div className="metaWrapper">
+        <Typography variant="h4" component="h3" className="title title3">
+          {meta1} <span>{meta2}</span>
+        </Typography>
+        <Button text={btntext} className="btnCard" />
+      </div>
     </StyledCard>
   );
 };
@@ -40,9 +42,15 @@ const StyledCard = styled(Card)({
   marginTop: "24px",
 
   "&.disabledCard": {
-    opacity: "0.7",
+    opacity: "0.6",
     "& .MuiButton-root": {
       background: "#979797",
     },
+  },
+  "& .metaWrapper": {
+    marginTop: "24px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
