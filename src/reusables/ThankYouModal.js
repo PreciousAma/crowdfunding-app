@@ -1,10 +1,11 @@
 import * as React from "react";
 // import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
-import Button from "@mui/material/Button";
-// import Typography from "@mui/material/Typography";
+// import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { Project } from "../reusables/Project";
+import { Button } from "../reusables/Button";
+// import { Project } from "../reusables/Project";
 import checkmark from "../images/icon-checkmark.svg";
 
 // const style = {
@@ -34,22 +35,18 @@ export const ThankYouModal = () => {
         aria-describedby="modal-modal-description"
       >
         <StyledBox>
-          {/* <Typography variant="h4" component="h3" className="title">
-            Thanks for your support!
-          </Typography>
-          <Typography id="modal-modal-description">
-            Want to support us in bringing Mastercraft Bamboo Monitor Riser out
-            in the world?
-          </Typography> */}
-
           <div className="checkmark">
             <img src={checkmark} alt="checkmark-icon" />
           </div>
-          <Project
-            title="Thanks for your support!"
-            text="Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our campaign is completed."
-            btntext="Got it!"
-          />
+          <Typography variant="h4" component="h3" className="title">
+            Thanks for your support!
+          </Typography>
+          <Typography variant="subtitle1" compponent="p" className="subtitle">
+            Your pledge brings us one step closer to sharing Mastercraft Bamboo
+            Monitor Riser worldwide. You will get an email once our campaign is
+            completed.
+          </Typography>
+          <Button text="Got it!" className="btntext" />
         </StyledBox>
       </Modal>
     </div>
@@ -59,24 +56,42 @@ export const ThankYouModal = () => {
 const StyledBox = styled("div")({
   backgroundColor: "#fff",
   position: "absolute",
+  textAlign: "center",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   //   bgcolor: "background.paper",
-  border: "2px solid #000",
-  borderRadius: "20px",
+  borderRadius: "5px",
   boxShadow: 24,
+  padding: "48px",
   p: 4,
 
   "& .checkmark": {
-    top: "70px",
+    alignItems: "center",
     position: "relative",
     display: "inline-block",
-    // bottom: "70%",
-    // top: "50%",
-    left: "30%",
-    // bottom: "30%",
-    border: "2px solid red",
+    margin: "auto",
+    justifyContent: "center",
+    // border: "2px solid red",
+  },
+
+  "& .title": {
+    fontWeight: "700",
+    fontSize: "18px",
+    color: "#000000",
+    marginBottom: "24px",
+  },
+
+  "& .subtitle": {
+    fontWeight: "400",
+    fontSize: "14px",
+    color: "#7A7A7A",
+  },
+
+  "& .btntext": {
+    padding: "10px 30px",
+    background: "#147A73",
+    marginTop: "15px",
   },
 });
