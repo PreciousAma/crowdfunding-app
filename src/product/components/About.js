@@ -25,31 +25,28 @@ export const About = () => {
 
       <Project
         title="Bamboo Stand"
-        subtitle="Pledge $25 or more"
+        pledges={25}
         text="You get an ergonomic stand made of natural bamboo. You've helped us
           launch our promotional campaign, and you’ll be added to a special
           Backer member list."
-        meta1="101"
-        meta2="left"
+        slot={101}
         btntext="select reward"
       />
       <Project
         title="Black Edition Stand"
-        subtitle="Pledge $75 or more"
+        pledges={75}
         text="You get a Black Special Edition computer stand and a personal thank
           you. You’ll be added to our Backer member list. Shipping is included."
-        meta1="64"
-        meta2="left"
+        slot={64}
         btntext="select reward"
       />
       <Project
         title="Mahogany Special Edition"
-        subtitle="Pledge $200 or more"
+        pledges={200}
         text="You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
         personal thank you. You’ll be added to our Backer member list.
         Shipping is included."
-        meta1="0"
-        meta2="left"
+        slot={0}
         btntext="out of stock"
         disabled
       />
@@ -64,13 +61,6 @@ const StyledCard = styled(Card)({
   //   display: "flex",
   // },
 
-  "& .titleContainer": {
-    "@media only screen and (min-width: 768px)": {
-      display: "flex",
-      justifyContent: "space-between",
-    },
-  },
-
   "& .title": {
     fontWeight: "700",
     fontSize: "18px",
@@ -82,38 +72,5 @@ const StyledCard = styled(Card)({
     fontWeight: "400",
     fontSize: "14px",
     color: "#7A7A7A",
-  },
-
-  "& .title2": {
-    fontSize: "14px",
-    marginBottom: "8px",
-  },
-
-  "& .subtitle2": {
-    color: "#3CB3AB",
-    fontWeight: "500",
-    fontSize: "14px",
-    marginBottom: "24px",
-  },
-
-  "& .title3": {
-    fontSize: "32px",
-    display: "flex",
-    alignItems: "center",
-    columnGap: "8px",
-  },
-
-  "& .title3 span": {
-    fontSize: "14px",
-    fontWeight: "400",
-    textAlign: "center",
-    color: "#7A7A7A",
-  },
-
-  "& .MuiButton-root": {
-    maxWidth: "157px",
-    fontSize: "14px",
-    color: "#FFFFFF",
-    padding: "14px 33px 14px 33px",
   },
 });

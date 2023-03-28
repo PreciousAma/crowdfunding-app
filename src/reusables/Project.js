@@ -2,17 +2,9 @@ import { Card } from "./Card";
 import { styled, Typography } from "@mui/material";
 import { Button } from "../reusables/Button";
 
-export const Project = ({
-  title,
-  subtitle,
-  text,
-  meta1,
-  meta2,
-  btntext,
-  disabled,
-}) => {
+export const Project = ({ title, pledges, text, slot, btntext, disabled }) => {
   return (
-    <StyledCard className={disabled ? "disabledCard" : ""}>
+    <StyledCard className={disabled ? "disabled-card" : ""}>
       <div className="titleContainer">
         <Typography variant="h4" component="h3" className="title title2">
           {title}
@@ -22,7 +14,7 @@ export const Project = ({
           compponent="h4"
           className="subtitle subtitle2"
         >
-          {subtitle}
+          Pledge ${pledges} or more
         </Typography>
       </div>
       <Typography variant="subtitle1" compponent="p" className="subtitle text2">
@@ -30,7 +22,7 @@ export const Project = ({
       </Typography>
       <div className="metaWrapper">
         <Typography variant="h4" component="h3" className="title title3">
-          {meta1} <span>{meta2}</span>
+          {slot} <span>left</span>
         </Typography>
         <Button text={btntext} className="btnCard" />
       </div>
@@ -38,19 +30,61 @@ export const Project = ({
   );
 };
 
-const StyledCard = styled(Card)({
-  marginTop: "24px",
+const StyledCard = styled(Card)`
+  margin-top: 24px;
 
-  "&.disabledCard": {
-    opacity: "0.6",
-    "& .MuiButton-root": {
-      background: "#979797",
-    },
-  },
-  "& .metaWrapper": {
-    marginTop: "24px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-});
+  &.disabled-card: {
+    opacity: 0.5;
+
+    & .muibutton-root: {
+      background: 979797;
+    }
+  }
+
+  & .metawrapper: {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & .titlecontainer: {
+    @media only screen and (min-width: 768px) : {
+      display: flex;
+      justifycontent: space-between;
+    }
+  }
+
+  & .title2: {
+    fontsize: 14px;
+    marginbottom: 8px;
+  }
+
+  & .subtitle2: {
+    color: #3cb3ab;
+    fontweight: 500;
+    fontsize: 14px;
+    marginbottom: 24px;
+  }
+
+  & .title3: {
+    fontsize: 32px;
+    display: flex;
+    alignitems: center;
+    columngap: 8px;
+  }
+
+  & .title3 span: {
+    fontsize: 14px;
+    fontweight: 400;
+    textalign: center;
+    color: #7a7a7a;
+  }
+
+  & .muibutton-root: {
+    maxwidth: 157px;
+    fontsize: 14px;
+    color: #ffffff;
+    padding: 14px 33px 14px 33px;
+  }
+`;

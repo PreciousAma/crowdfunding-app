@@ -5,6 +5,7 @@ import { Banner } from "../components/Banner";
 import { styled } from "@mui/material";
 import { NavBar } from "../../reusables/NavBar";
 import { ThankYouModal } from "../../reusables/ThankYouModal";
+import { BackThisProjectModal } from "../../reusables/BackThisProjectModal";
 
 export const Product = () => {
   return (
@@ -16,6 +17,7 @@ export const Product = () => {
         <Progress />
         <About />
         <ThankYouModal />
+        <BackThisProjectModal />
       </StyledDiv>
     </>
   );
