@@ -1,10 +1,10 @@
 import React from "react";
 import { Button as muiButton, styled } from "@mui/material";
 
-export const Button = ({ text, ...rest }) => {
+export const Button = ({ children, ...rest }) => {
   return (
     <StyledButton variant="contained" {...rest}>
-      {text}
+      {children}
     </StyledButton>
   );
 };

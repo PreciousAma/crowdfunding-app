@@ -4,7 +4,7 @@ import { Button } from "../reusables/Button";
 
 export const Project = ({ title, pledges, text, slot, btntext, disabled }) => {
   return (
-    <StyledCard className={disabled ? "disabled-card" : ""}>
+    <StyledCard className={disabled ? "disabled-card" : ""} variant="outlined">
       <div className="titleContainer">
         <Typography variant="h4" component="h3" className="title title2">
           {title}
@@ -24,7 +24,7 @@ export const Project = ({ title, pledges, text, slot, btntext, disabled }) => {
         <Typography variant="h4" component="h3" className="title title3">
           {slot} <span>left</span>
         </Typography>
-        <Button text={btntext} className="btnCard" />
+        <Button className="btnCard">{btntext}</Button>
       </div>
     </StyledCard>
   );
@@ -33,57 +33,57 @@ export const Project = ({ title, pledges, text, slot, btntext, disabled }) => {
 const StyledCard = styled(Card)`
   margin-top: 24px;
 
-  &.disabled-card: {
+  &.disabled-card {
     opacity: 0.5;
 
-    & .muibutton-root: {
+    & .muibutton-root {
       background: 979797;
     }
   }
 
-  & .metawrapper: {
+  & .metawrapper {
     margin-top: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  & .titlecontainer: {
-    @media only screen and (min-width: 768px) : {
+  & .titlecontainer {
+    @media only screen and (min-width: 768px) {
       display: flex;
-      justifycontent: space-between;
+      justify-content: space-between;
     }
   }
 
-  & .title2: {
-    fontsize: 14px;
-    marginbottom: 8px;
+  & .title2 {
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
-  & .subtitle2: {
+  & .subtitle2 {
     color: #3cb3ab;
-    fontweight: 500;
-    fontsize: 14px;
-    marginbottom: 24px;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom: 24px;
   }
 
-  & .title3: {
-    fontsize: 32px;
+  & .title3 {
+    font-size: 32px;
     display: flex;
-    alignitems: center;
-    columngap: 8px;
+    align-items: center;
+    column-gap: 8px;
   }
 
-  & .title3 span: {
-    fontsize: 14px;
-    fontweight: 400;
-    textalign: center;
+  & .title3 span {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
     color: #7a7a7a;
   }
 
-  & .muibutton-root: {
-    maxwidth: 157px;
-    fontsize: 14px;
+  & .muibutton-root {
+    max-width: 157px;
+    font-size: 14px;
     color: #ffffff;
     padding: 14px 33px 14px 33px;
   }

@@ -1,36 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "../../reusables/Card";
 import { ReactComponent as BookmarkIcon } from "../../images/icon-bookmark.svg";
 import { styled, Typography, SvgIcon, IconButton } from "@mui/material";
 import { Button } from "../../reusables/Button";
 import logo from "../../images/logo-mastercraft.svg";
+import { BackThisProjectModal } from "../../reusables/BackThisProjectModal";
 
 export const TitleCard = () => {
-  return (
-    <StyledCard variant="outlined">
-      <div className="logo">
-        <img src={logo} alt="Mastercraft logo" />
-      </div>
+  const [show, setShow] = useState(false);
+  const handleOpen = () => setShow(true);
+  const handleClose = () => setShow(false);
 
-      <Typography variant="h4" component="h3" className="title">
-        Mastercraft Bambo Monitor Riser
-      </Typography>
-      <Typography variant="subtitle1" compponent="p" className="subtitle">
-        A beautifully handcrafted monitor stand to reduce neck and eye strain.
-      </Typography>
-      <div className="buttonGroup">
-        <Button text="Back this project" />
-        <Button
-          startIcon={<SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />}
-          text="Bookmark"
-          className="buttonIcon"
-          disabled
-        />
-        <IconButton className="bookmarkButton">
-          <SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />
-        </IconButton>
-      </div>
-    </StyledCard>
+  return (
+    <>
+      <StyledCard variant="outlined">
+        <div className="logo">
+          <img src={logo} alt="Mastercraft logo" />
+        </div>
+
+        <Typography variant="h4" component="h3" className="title">
+          Mastercraft Bambo Monitor Riser
+        </Typography>
+        <Typography variant="subtitle1" compponent="p" className="subtitle">
+          A beautifully handcrafted monitor stand to reduce neck and eye strain.
+        </Typography>
+        <div className="buttonGroup">
+          <Button onClick={() => handleOpen()}>Back this project</Button>
+          <Button
+            startIcon={<SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />}
+            className="buttonIcon"
+            disabled
+          >
+            Bookmark
+          </Button>
+          <IconButton className="bookmarkButton">
+            <SvgIcon component={BookmarkIcon} viewBox="0 0 56 56" />
+          </IconButton>
+        </div>
+      </StyledCard>
+      <BackThisProjectModal show={show} onClose={handleClose} />
+    </>
   );
 };
 
