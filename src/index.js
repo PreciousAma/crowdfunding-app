@@ -1,13 +1,40 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
+import { StyledEngineProvider } from "@mui/material/styles";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#147A73",
+      light: "#3CB3AB",
+    },
+  },
+  typography: {
+    fontFamily: "Commissioner, Roboto, sans-serif",
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          background: "#F2F2F2",
+        },
+      },
+    },
+  },
+});
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
