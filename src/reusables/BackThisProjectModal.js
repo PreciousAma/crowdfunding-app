@@ -65,13 +65,19 @@ export const BackThisProjectModal = ({ show, onClose }) => {
             />
           </div>
           <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
+            <div className="header-container">
+              <Typography
+                variant="h6"
+                component="h3"
+                className="title pledge-title"
+              >
+                Pledge with no reward
+              </Typography>
+
+              <Typography className="slot-title">
+                101 <span>left</span>
+              </Typography>
+            </div>
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -91,13 +97,19 @@ export const BackThisProjectModal = ({ show, onClose }) => {
             />
           </div>
           <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
+            <div className="header-container">
+              <Typography
+                variant="h6"
+                component="h3"
+                className="title pledge-title"
+              >
+                Pledge with no reward
+              </Typography>
+
+              <Typography className="slot-title">
+                101 <span>left</span>
+              </Typography>
+            </div>
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -117,13 +129,20 @@ export const BackThisProjectModal = ({ show, onClose }) => {
             />
           </div>
           <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
+            <div className="header-container">
+              <Typography
+                variant="h6"
+                component="h3"
+                className="title pledge-title"
+              >
+                Pledge with no reward
+              </Typography>
+
+              <Typography className="slot-title">
+                101 <span>left</span>
+              </Typography>
+            </div>
+
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -171,6 +190,25 @@ const StyledBox = styled("div")`
     margin-bottom: 20px;
     padding: 32px 28px;
   }
+  & .header-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .slot-title {
+    font-size: 32px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+  }
+
+  & .slot-title span {
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    color: #7a7a7a;
+  }
 
   & .radio-button {
     justify-content: center;
@@ -190,6 +228,9 @@ const StyledBox = styled("div")`
     font-weight: 700;
     text-align: left;
     cursor: pointer;
+  }
+  & .pledge-title:hover {
+    color: #3cb3ab;
   }
 
   & .text {
