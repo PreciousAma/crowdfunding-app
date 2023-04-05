@@ -28,7 +28,7 @@ export const BackThisProjectModal = ({ show, onClose }) => {
         </Typography>
 
         <Card className="card-content" variant="outlined">
-          <div className="radio-button">
+          <div className="header-container">
             <Radio
               checked={selectedValue === "a"}
               onChange={handleChange}
@@ -37,15 +37,12 @@ export const BackThisProjectModal = ({ show, onClose }) => {
               className="radio"
               inputProps={{ "aria-label": "A" }}
             />
-          </div>
-          <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
+
+            <Typography variant="h6" component="h3" className="pledge-title">
               Pledge with no reward
             </Typography>
+          </div>
+          <div className="text-content">
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -54,7 +51,7 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           </div>
         </Card>
         <Card className="card-content" variant="outlined">
-          <div className="radio-button">
+          <div className="header-container">
             <Radio
               checked={selectedValue === "b"}
               onChange={handleChange}
@@ -63,21 +60,17 @@ export const BackThisProjectModal = ({ show, onClose }) => {
               className="radio"
               inputProps={{ "aria-label": "A" }}
             />
+            <Typography variant="h6" component="h3" className="pledge-title">
+              Pledge with no reward
+            </Typography>
+            <Typography component="h3" className="pledge-amount">
+              Pledge $25 or more
+            </Typography>
+            <Typography component="h3" className="slot-title">
+              101 <span>left</span>
+            </Typography>
           </div>
           <div className="text-content">
-            <div className="header-container">
-              <Typography
-                variant="h6"
-                component="h3"
-                className="title pledge-title"
-              >
-                Pledge with no reward
-              </Typography>
-
-              <Typography className="slot-title">
-                101 <span>left</span>
-              </Typography>
-            </div>
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -86,7 +79,7 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           </div>
         </Card>
         <Card className="card-content" variant="outlined">
-          <div className="radio-button">
+          <div className="header-container">
             <Radio
               checked={selectedValue === "c"}
               onChange={handleChange}
@@ -95,21 +88,15 @@ export const BackThisProjectModal = ({ show, onClose }) => {
               className="radio"
               inputProps={{ "aria-label": "A" }}
             />
+            <Typography variant="h6" component="h3" className="pledge-title">
+              Pledge with no reward
+            </Typography>
+
+            <Typography component="h3" className="slot-title">
+              101 <span>left</span>
+            </Typography>
           </div>
           <div className="text-content">
-            <div className="header-container">
-              <Typography
-                variant="h6"
-                component="h3"
-                className="title pledge-title"
-              >
-                Pledge with no reward
-              </Typography>
-
-              <Typography className="slot-title">
-                101 <span>left</span>
-              </Typography>
-            </div>
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -118,7 +105,7 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           </div>
         </Card>
         <Card className="card-content" variant="outlined">
-          <div className="radio-button">
+          <div className="header-container">
             <Radio
               checked={selectedValue === "d"}
               onChange={handleChange}
@@ -127,22 +114,15 @@ export const BackThisProjectModal = ({ show, onClose }) => {
               className="radio"
               inputProps={{ "aria-label": "A" }}
             />
+            <Typography variant="h6" component="h3" className="pledge-title">
+              Pledge with no reward
+            </Typography>
+
+            <Typography component="h3" className="slot-title">
+              101 <span>left</span>
+            </Typography>
           </div>
           <div className="text-content">
-            <div className="header-container">
-              <Typography
-                variant="h6"
-                component="h3"
-                className="title pledge-title"
-              >
-                Pledge with no reward
-              </Typography>
-
-              <Typography className="slot-title">
-                101 <span>left</span>
-              </Typography>
-            </div>
-
             <Typography variant="body1" component="p" className="text">
               Choose to support us without a reward if you simply believe in our
               project. As a backer, you will be signed up to receive product
@@ -158,6 +138,9 @@ export const BackThisProjectModal = ({ show, onClose }) => {
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {
     scrollbar-width: none;
+    width: 100%;
+    max-width: 730px;
+    border: 1px solid red;
   }
 
   & .MuiPaper-root::-webkit-scrollbar {
@@ -168,7 +151,6 @@ const StyledDialog = styled(Dialog)`
 const StyledBox = styled("div")`
   background-color: #fff;
   border-radius: 8px;
-  text-align: center;
   width: 400;
   border-radius: 5px;
   box-shadow: 24;
@@ -187,50 +169,56 @@ const StyledBox = styled("div")`
 
   & .card-content {
     display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
     padding: 32px 28px;
+    row-gap: 17px;
   }
+
   & .header-container {
     display: flex;
-    justify-content: space-between;
-  }
-
-  & .slot-title {
-    font-size: 32px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    column-gap: 8px;
-  }
-
-  & .slot-title span {
-    font-size: 14px;
-    font-weight: 400;
-    text-align: center;
-    color: #7a7a7a;
-  }
-
-  & .radio-button {
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
 
     & .radio {
       color: #3cb3ab;
       display: inline-block;
       padding: 0px;
       align-items: center;
+      margin-right: 24px;
     }
-  }
 
-  & .pledge-title {
-    font-size: 16px;
-    font-weight: 700;
-    text-align: left;
-    cursor: pointer;
-  }
-  & .pledge-title:hover {
-    color: #3cb3ab;
+    & .pledge-title {
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      padding-right: 17px;
+    }
+
+    & .pledge-title:hover {
+      color: #3cb3ab;
+    }
+
+    & .pledge-amount {
+      color: #3cb3ab;
+    }
+    /* display: flex; */
+    /* justify-content: space-between; */
+
+    & .slot-title {
+      margin-left: auto;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 0.5;
+      display: flex;
+      align-items: center;
+      /* display: flex; */
+      column-gap: 8px;
+    }
+
+    & .slot-title span {
+      font-size: 15px;
+      font-weight: 400;
+      /* color: #7a7a7a; */
+    }
   }
 
   & .text {
