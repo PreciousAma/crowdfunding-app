@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { Card } from "./Card";
-import Radio from "@mui/material/Radio";
-
+import { Pledge } from "./Pledge";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
-// import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
-import { Button } from "../reusables/Button";
 
 export const BackThisProjectModal = ({ show, onClose }) => {
-  const [selectedValue, setSelectedValue] = useState("a");
+  const [selectedValue, setSelectedValue] = useState("");
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -27,110 +23,44 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           the world?
         </Typography>
 
-        <Card className="card-content" variant="outlined">
-          <div className="radio-button">
-            <Radio
-              checked={selectedValue === "a"}
-              onChange={handleChange}
-              value="a"
-              name="radio-buttons"
-              className="radio"
-              inputProps={{ "aria-label": "A" }}
-            />
-          </div>
-          <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
-            <Typography variant="body1" component="p" className="text">
-              Choose to support us without a reward if you simply believe in our
-              project. As a backer, you will be signed up to receive product
-              updates via email.
-            </Typography>
-          </div>
-        </Card>
-        <Card className="card-content" variant="outlined">
-          <div className="radio-button">
-            <Radio
-              checked={selectedValue === "b"}
-              onChange={handleChange}
-              value="b"
-              name="radio-buttons"
-              className="radio"
-              inputProps={{ "aria-label": "A" }}
-            />
-          </div>
-          <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
-            <Typography variant="body1" component="p" className="text">
-              Choose to support us without a reward if you simply believe in our
-              project. As a backer, you will be signed up to receive product
-              updates via email.
-            </Typography>
-          </div>
-        </Card>
-        <Card className="card-content" variant="outlined">
-          <div className="radio-button">
-            <Radio
-              checked={selectedValue === "c"}
-              onChange={handleChange}
-              value="c"
-              name="radio-buttons"
-              className="radio"
-              inputProps={{ "aria-label": "A" }}
-            />
-          </div>
-          <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
-            <Typography variant="body1" component="p" className="text">
-              Choose to support us without a reward if you simply believe in our
-              project. As a backer, you will be signed up to receive product
-              updates via email.
-            </Typography>
-          </div>
-        </Card>
-        <Card className="card-content" variant="outlined">
-          <div className="radio-button">
-            <Radio
-              checked={selectedValue === "d"}
-              onChange={handleChange}
-              value="d"
-              name="radio-buttons"
-              className="radio"
-              inputProps={{ "aria-label": "A" }}
-            />
-          </div>
-          <div className="text-content">
-            <Typography
-              variant="h6"
-              component="h3"
-              className="title pledge-title"
-            >
-              Pledge with no reward
-            </Typography>
-            <Typography variant="body1" component="p" className="text">
-              Choose to support us without a reward if you simply believe in our
-              project. As a backer, you will be signed up to receive product
-              updates via email.
-            </Typography>
-          </div>
-        </Card>
+        <Pledge
+          title="Pledge with no reward"
+          text="Choose to support us without a reward if you simply believe in our
+                project. As a backer, you will be signed up to receive product
+                updates via email."
+          radioValue="a"
+          radioChecked={selectedValue === "a"}
+          handleRadioChange={(e) => handleChange(e)}
+        />
+
+        <Pledge
+          title="Bamboo Stand"
+          amount="Pledge $25 or more"
+          slot="101"
+          text="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list."
+          radioValue="b"
+          radioChecked={selectedValue === "b"}
+          handleRadioChange={(e) => handleChange(e)}
+        />
+
+        <Pledge
+          title="Black Stand Edition"
+          amount="Pledge $75 or more"
+          slot="64"
+          text="You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included."
+          radioValue="c"
+          radioChecked={selectedValue === "c"}
+          handleRadioChange={(e) => handleChange(e)}
+        />
+        <Pledge
+          title="Mahogany Special Edition"
+          amount="Pledge $200 or more"
+          slot="0"
+          text="You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list.  Shipping is included."
+          radioValue="d"
+          radioChecked={selectedValue === "d"}
+          handleRadioChange={(e) => handleChange(e)}
+        />
       </StyledBox>
     </StyledDialog>
   );
@@ -139,6 +69,9 @@ export const BackThisProjectModal = ({ show, onClose }) => {
 const StyledDialog = styled(Dialog)`
   & .MuiPaper-root {
     scrollbar-width: none;
+    width: 100%;
+    max-width: 730px;
+    border: 1px solid red;
   }
 
   & .MuiPaper-root::-webkit-scrollbar {
@@ -149,7 +82,6 @@ const StyledDialog = styled(Dialog)`
 const StyledBox = styled("div")`
   background-color: #fff;
   border-radius: 8px;
-  text-align: center;
   width: 400;
   border-radius: 5px;
   box-shadow: 24;
@@ -159,43 +91,13 @@ const StyledBox = styled("div")`
     font-size: 24px;
     font-weight: 700;
     text-align: left;
+    margin-bottom: 16px;
   }
 
   & .subtitle {
     font-size: 16px;
     text-align: left;
-  }
-
-  & .card-content {
-    display: flex;
-    margin-bottom: 20px;
-    padding: 32px 28px;
-  }
-
-  & .radio-button {
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-
-    & .radio {
-      color: #3cb3ab;
-      display: inline-block;
-      padding: 0px;
-      align-items: center;
-    }
-  }
-
-  & .pledge-title {
-    font-size: 16px;
-    font-weight: 700;
-    text-align: left;
-    cursor: pointer;
-  }
-
-  & .text {
-    font-size: 15px;
-    font-weight: 400;
-    text-align: left;
+    margin-bottom: 32px;
     color: #7a7a7a;
   }
 `;
