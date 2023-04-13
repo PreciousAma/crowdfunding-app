@@ -10,19 +10,21 @@ export const Pledge = ({
   amount,
   className,
   slot,
+  disabled = false,
   text,
   radioValue,
   radioChecked,
   handleRadioChange,
 }) => {
   return (
-    <StyledCard variant="outlined">
+    <StyledCard variant="outlined" className={disabled ? "disabled-card" : ""}>
       <Radio
         checked={radioChecked}
         onChange={(e) => handleRadioChange(e)}
         value={radioValue}
         name="radio-buttons"
         className="radio"
+        disabled={disabled}
       />
       <div className="card-content">
         <div className="header-container">
@@ -44,6 +46,11 @@ export const Pledge = ({
           </Typography>
         </div>
       </div>
+      {radioChecked ? (
+        <div className="pledge-payment">
+          <Typography>Enter your</Typography>
+        </div>
+      ) : null}
     </StyledCard>
   );
 };
@@ -54,6 +61,16 @@ const StyledCard = styled(Card)`
   margin-bottom: 20px;
   padding: 32px 28px;
   row-gap: 17px;
+
+  &.disabled-card {
+    opacity: 0.5;
+
+    & .header-container {
+      & .pledge-title:hover {
+        color: #000000;
+      }
+    }
+  }
 
   & .radio {
     color: #3cb3ab;
@@ -113,5 +130,8 @@ const StyledCard = styled(Card)`
     font-weight: 400;
     text-align: left;
     color: #7a7a7a;
+  }
+
+  & .pledge-payment {
   }
 `;

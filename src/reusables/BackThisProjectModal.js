@@ -60,6 +60,7 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           radioValue="d"
           radioChecked={selectedValue === "d"}
           handleRadioChange={(e) => handleChange(e)}
+          disabled
         />
       </StyledBox>
     </StyledDialog>
