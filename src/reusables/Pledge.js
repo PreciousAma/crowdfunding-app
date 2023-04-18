@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "./Card";
+import { PledgeConfirmation } from "./PledgeConfirmation";
 import { styled } from "@mui/material";
 import Radio from "@mui/material/Radio";
 import Typography from "@mui/material/Typography";

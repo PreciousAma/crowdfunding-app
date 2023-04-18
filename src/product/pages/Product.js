@@ -5,6 +5,7 @@ import { Banner } from "../components/Banner";
 import { styled } from "@mui/material";
 import { NavBar } from "../../reusables/NavBar";
 import { ThankYouModal } from "../../reusables/ThankYouModal";
+import { PledgeConfirmation } from "../../reusables/PledgeConfirmation";
 import { BackThisProjectModal } from "../../reusables/BackThisProjectModal";
 
 export const Product = () => {
@@ -18,6 +19,7 @@ export const Product = () => {
         <About />
         <ThankYouModal />
         <BackThisProjectModal />
+        <PledgeConfirmation />
       </StyledDiv>
     </>
   );
