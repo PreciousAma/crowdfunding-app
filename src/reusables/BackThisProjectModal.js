@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Pledge } from "./Pledge";
-import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
@@ -72,7 +71,6 @@ const StyledDialog = styled(Dialog)`
     scrollbar-width: none;
     width: 100%;
     max-width: 730px;
-    border: 1px solid red;
   }
 
   & .MuiPaper-root::-webkit-scrollbar {

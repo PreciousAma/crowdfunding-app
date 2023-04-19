@@ -1,6 +1,7 @@
 import * as React from "react";
-// import Box from "@mui/material/Box";
+import Box from "@mui/material/Box";
 import { styled } from "@mui/material";
+import Dialog from "@mui/material/Dialog";
 // import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -20,78 +21,74 @@ import checkmark from "../images/icon-checkmark.svg";
 //   p: 4,
 // };
 
-export const ThankYouModal = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+export const ThankYouModal = ({ show, onClose }) => {
   return (
-    <div>
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <StyledBox>
-          <div className="checkmark">
-            <img src={checkmark} alt="checkmark-icon" />
-          </div>
-          <Typography variant="h4" component="h3" className="title">
-            Thanks for your support!
-          </Typography>
-          <Typography variant="subtitle1" compponent="p" className="subtitle">
-            Your pledge brings us one step closer to sharing Mastercraft Bamboo
-            Monitor Riser worldwide. You will get an email once our campaign is
-            completed.
-          </Typography>
-          <Button text="Got it!" className="btntext" />
-        </StyledBox>
-      </Modal>
-    </div>
+    <StyledDialog open={show} onClose={onClose}>
+      <StyledBox>
+        <div className="checkmark">
+          <img src={checkmark} alt="checkmark-icon" />
+        </div>
+        <Typography variant="h4" component="h3" className="title">
+          Thanks for your support!
+        </Typography>
+        <Typography variant="subtitle1" compponent="p" className="subtitle">
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo
+          Monitor Riser worldwide. You will get an email once our campaign is
+          completed.
+        </Typography>
+        <Button text="Got it!" className="btntext" />
+      </StyledBox>
+    </StyledDialog>
   );
 };
 
-const StyledBox = styled("div")({
-  backgroundColor: "#fff",
-  position: "absolute",
-  textAlign: "center",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
+const StyledDialog = styled(Dialog)`
+  padding: 48px;
+  border: 1px solid red;
+  position: absolute;
+`;
+
+const StyledBox = styled("div")`
+  background-color: #fff;
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: "center";
+  border: 1px solid red;
+  width: 400;
+
   //   bgcolor: "background.paper",
-  borderRadius: "5px",
-  boxShadow: 24,
-  padding: "48px",
-  p: 4,
+  border-radius: 5px;
+  box-shadow: 24;
+  padding: 48px;
 
-  "& .checkmark": {
-    alignItems: "center",
-    position: "relative",
-    display: "inline-block",
-    margin: "auto",
-    justifyContent: "center",
+  & .checkmark {
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    justify-content: center;
     // border: "2px solid red",
-  },
+  }
 
-  "& .title": {
-    fontWeight: "700",
-    fontSize: "18px",
-    color: "#000000",
-    marginBottom: "24px",
-  },
+  & .title {
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 24px;
+  }
 
-  "& .subtitle": {
-    fontWeight: "400",
-    fontSize: "14px",
-    color: "#7A7A7A",
-  },
+  & .subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color: #7a7a7a;
+  }
 
-  "& .btntext": {
-    padding: "10px 30px",
-    background: "#147A73",
-    marginTop: "15px",
-  },
-});
+  & .btntext {
+    padding: 10px 30px;
+    background: #147a73;
+    margin-top: 15px;
+  }
+`;

@@ -5,6 +5,7 @@ import { styled, Typography, SvgIcon, IconButton } from "@mui/material";
 import { Button } from "../../reusables/Button";
 import logo from "../../images/logo-mastercraft.svg";
 import { BackThisProjectModal } from "../../reusables/BackThisProjectModal";
+import { ThankYouModal } from "../../reusables/ThankYouModal";
 
 export const TitleCard = () => {
   const [show, setShow] = useState(false);
