@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material";
 import { TextField } from "@mui/material";
 import InputAdornment from "@mui/material/InputAdornment";
-import { ThankYouModal } from "./ThankYouModal";
 
-export const PledgeConfirmation = () => {
-  const [show, setShow] = useState(false);
-  const handleOpen = () => setShow(true);
-  const handleClose = () => setShow(false);
-
+export const PledgeConfirmation = ({ onSuccess }) => {
   return (
     <StyledDiv>
       <Typography className="title">Enter your pledge</Typography>
@@ -21,11 +16,10 @@ export const PledgeConfirmation = () => {
             startAdornment: <InputAdornment position="start">$</InputAdornment>,
           }}
         />
-        <button onClick={() => handleOpen()} className="cont-btn">
+        <button className="cont-btn" onClick={() => onSuccess()}>
           Continue
         </button>
       </div>
-      <ThankYouModal show={show} onClose={handleClose} />
     </StyledDiv>
   );
 };
@@ -60,7 +54,7 @@ const StyledDiv = styled("div")`
         font-weight: 700;
         font-size: 14px;
         caret-color: #3cb3ab;
-        padding: 15px 24px;
+        padding: 15px 24px 15px 2px;
       }
 
       & .MuiOutlinedInput-notchedOutline {

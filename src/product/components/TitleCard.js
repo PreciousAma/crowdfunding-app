@@ -9,8 +9,16 @@ import { ThankYouModal } from "../../reusables/ThankYouModal";
 
 export const TitleCard = () => {
   const [show, setShow] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+
   const handleOpen = () => setShow(true);
   const handleClose = () => setShow(false);
+
+  const handleThankYouOpen = () => {
+    handleClose();
+    setShowThankYou(true);
+  };
+  const handleThankYouClose = () => setShowThankYou(false);
 
   return (
     <>
@@ -39,7 +47,17 @@ export const TitleCard = () => {
           </IconButton>
         </div>
       </StyledCard>
-      <BackThisProjectModal show={show} onClose={handleClose} />
+      {show && (
+        <BackThisProjectModal
+          show={show}
+          onClose={handleClose}
+          onShowConfirmation={handleThankYouOpen}
+        />
+      )}
+
+      {showThankYou && (
+        <ThankYouModal show={showThankYou} onClose={handleThankYouClose} />
+      )}
     </>
   );
 };

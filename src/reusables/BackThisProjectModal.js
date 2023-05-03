@@ -4,15 +4,23 @@ import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
 
-export const BackThisProjectModal = ({ show, onClose }) => {
+export const BackThisProjectModal = ({ show, onClose, onShowConfirmation }) => {
   const [selectedValue, setSelectedValue] = useState("");
+  const handleOnclose = () => {
+    setSelectedValue("");
+    onClose();
+  };
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
   };
 
+  // if (!show) {
+  //   setSelectedValue("");
+  // }
+
   return (
-    <StyledDialog open={show} onClose={onClose}>
+    <StyledDialog open={show} onClose={() => handleOnclose()}>
       <StyledBox className="box">
         <Typography variant="h4" component="h3" className="title">
           Back This Project
@@ -30,6 +38,8 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           radioValue="a"
           radioChecked={selectedValue === "a"}
           handleRadioChange={(e) => handleChange(e)}
+          closePleadeModal={onClose}
+          onSuccess={onShowConfirmation}
         />
 
         <Pledge
@@ -40,6 +50,8 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           radioValue="b"
           radioChecked={selectedValue === "b"}
           handleRadioChange={(e) => handleChange(e)}
+          closePleadeModal={onClose}
+          onSuccess={onShowConfirmation}
         />
 
         <Pledge
@@ -50,6 +62,8 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           radioValue="c"
           radioChecked={selectedValue === "c"}
           handleRadioChange={(e) => handleChange(e)}
+          closePleadeModal={onClose}
+          onSuccess={onShowConfirmation}
         />
         <Pledge
           title="Mahogany Special Edition"
@@ -59,6 +73,8 @@ export const BackThisProjectModal = ({ show, onClose }) => {
           radioValue="d"
           radioChecked={selectedValue === "d"}
           handleRadioChange={(e) => handleChange(e)}
+          closePleadeModal={onClose}
+          onSuccess={onShowConfirmation}
           disabled
         />
       </StyledBox>

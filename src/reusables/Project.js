@@ -20,7 +20,7 @@ export const Project = ({ title, pledges, text, slot, btntext, disabled }) => {
       <Typography variant="subtitle1" compponent="p" className="subtitle text2">
         {text}
       </Typography>
-      <div className="metaWrapper">
+      <div className="wrapper">
         <Typography variant="h4" component="h3" className="title title3">
           {slot} <span>left</span>
         </Typography>
@@ -41,14 +41,14 @@ const StyledCard = styled(Card)`
     }
   }
 
-  & .metawrapper {
+  & .wrapper {
     margin-top: 24px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  & .titlecontainer {
+  & .titleContainer {
     @media only screen and (min-width: 768px) {
       display: flex;
       justify-content: space-between;
@@ -72,6 +72,7 @@ const StyledCard = styled(Card)`
     display: flex;
     align-items: center;
     column-gap: 8px;
+    margin-bottom: 0px;
   }
 
   & .title3 span {

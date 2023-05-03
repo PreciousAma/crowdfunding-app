@@ -4,8 +4,6 @@ import { TitleCard } from "../components/TitleCard";
 import { Banner } from "../components/Banner";
 import { styled } from "@mui/material";
 import { NavBar } from "../../reusables/NavBar";
-import { ThankYouModal } from "../../reusables/ThankYouModal";
-import { BackThisProjectModal } from "../../reusables/BackThisProjectModal";
 
 export const Product = () => {
   return (
@@ -16,8 +14,6 @@ export const Product = () => {
         <TitleCard />
         <Progress />
         <About />
-        <ThankYouModal />
-        <BackThisProjectModal />
       </StyledDiv>
     </>
   );

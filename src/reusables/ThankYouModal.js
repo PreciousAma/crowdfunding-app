@@ -9,21 +9,9 @@ import { Button } from "../reusables/Button";
 // import { Project } from "../reusables/Project";
 import checkmark from "../images/icon-checkmark.svg";
 
-// const style = {
-//   position: "absolute",
-//   top: "50%",
-//   left: "50%",
-//   transform: "translate(-50%, -50%)",
-//   width: 400,
-//   bgcolor: "background.paper",
-//   border: "2px solid #000",
-//   boxShadow: 24,
-//   p: 4,
-// };
-
 export const ThankYouModal = ({ show, onClose }) => {
   return (
-    <StyledDialog open={show} onClose={onClose}>
+    <StyledDialog open={show} onClose={() => onClose()}>
       <StyledBox>
         <div className="checkmark">
           <img src={checkmark} alt="checkmark-icon" />
@@ -36,7 +24,9 @@ export const ThankYouModal = ({ show, onClose }) => {
           Monitor Riser worldwide. You will get an email once our campaign is
           completed.
         </Typography>
-        <Button text="Got it!" className="btntext" />
+        <Button className="btntext" onClick={() => onClose()}>
+          Got it!
+        </Button>
       </StyledBox>
     </StyledDialog>
   );

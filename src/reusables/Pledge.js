@@ -15,9 +15,15 @@ export const Pledge = ({
   radioValue,
   radioChecked,
   handleRadioChange,
+  closePleadeModal,
+  onSuccess,
 }) => {
   return (
-    <StyledCard variant="outlined" className={disabled ? "disabled-card" : ""}>
+    <StyledCard
+      variant="outlined"
+      className={disabled ? "disabled-card" : ""}
+      isSelected={radioChecked}
+    >
       <div className="container">
         <Radio
           checked={radioChecked}
@@ -48,16 +54,25 @@ export const Pledge = ({
           </div>
         </div>
       </div>
-      {radioChecked ? <PledgeConfirmation /> : null}
+      {radioChecked ? (
+        <PledgeConfirmation
+          onSuccess={onSuccess}
+          closePleadeModal={closePleadeModal}
+        />
+      ) : null}
     </StyledCard>
   );
 };
 
-const StyledCard = styled(Card)`
+const StyledCard = styled(Card, {
+  shouldForwardProp: (prop) => !["isSelected"].includes(prop),
+})`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
   padding: 0px;
+  border: ${(props) =>
+    props.isSelected ? "1px solid #3cb3ab" : "1px solid #0000001f"};
 
   &.disabled-card {
     opacity: 0.5;
